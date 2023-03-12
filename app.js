@@ -1,7 +1,14 @@
 'use strict';
 
-console.log(Boolean(0));
-console.log(Boolean(''));
-console.log(Boolean(undefined));
-console.log(Boolean(null));
-console.log(Boolean(Number('sx')));
+const money = 100;
+const canBuy = money > 50;
+
+if (canBuy) {
+  console.log('Может купить наш продукт');
+} else if (money > 5) {
+  console.log('Куплен mini продукт');
+} else {
+  console.log('Не хватает денег:-(');
+}
+
+console.log('Итог');
