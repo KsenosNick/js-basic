@@ -1,31 +1,10 @@
 'use strict';
 
-const role = 'Менеджер';
+const bmwX3Price = 100000;
+const fordFocusPrice = 10000;
+const budget = 20000;
 
-switch (role) {
-  case 'Менеджер':
-    console.log('Менеджер');
-    break;
-  case 'Админ':
-    console.log('Админ');
-    break;
-  case 'ceo': 
-    console.log('CEO');
-    break;
-  default:
-    console.log('Мы тебя не знаем!');
-    break;
-}
+let message =
+  budget > bmwX3Price ? 'BMW' : budget > fordFocusPrice ? 'Ford' : 'Велосипед';
 
-const num = 1;
-
-switch (true) {
-  case num > 0: // true === num > 0
-    console.log('Положительный');
-    break;
-  case num < 0:
-    console.log('Отрицательный');
-    break;
-  default:
-    console.log('Ноль');
-}
+console.log(`Я хочу купить ${message}`);
