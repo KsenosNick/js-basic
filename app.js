@@ -1,14 +1,17 @@
 'use strict';
 
-const depositAmount = 12000;
-const depositRate = 0.07;
-const depositeTerm = 2;
-const purchasePrice = 13500;
+const secretNumber = 7;
 
-const result = depositAmount * (1 + depositRate / 12) ** (depositeTerm * 12);
+if (Number(secretNumber) === 7) {
+  console.log('Угадал строго');
+}
 
-if (result > purchasePrice) {
-  console.log(`Всего накоплено ${result} $. Покупка возможна. Остаток на счёте - ${result - purchasePrice} $`);
-} else {
-  console.log('Денег недостаточно');
+if (secretNumber == 7) {
+  console.log('Угадал не строго');
+}
+
+const q = Number(prompt('Введите число'));
+
+if (q === 7) {
+  console.log('Удагал число');
 }
