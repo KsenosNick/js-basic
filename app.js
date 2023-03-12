@@ -1,17 +1,31 @@
 'use strict';
 
-const secretNumber = 7;
+const role = 'Менеджер';
 
-if (Number(secretNumber) === 7) {
-  console.log('Угадал строго');
+switch (role) {
+  case 'Менеджер':
+    console.log('Менеджер');
+    break;
+  case 'Админ':
+    console.log('Админ');
+    break;
+  case 'ceo': 
+    console.log('CEO');
+    break;
+  default:
+    console.log('Мы тебя не знаем!');
+    break;
 }
 
-if (secretNumber == 7) {
-  console.log('Угадал не строго');
-}
+const num = 1;
 
-const q = Number(prompt('Введите число'));
-
-if (q === 7) {
-  console.log('Удагал число');
+switch (true) {
+  case num > 0: // true === num > 0
+    console.log('Положительный');
+    break;
+  case num < 0:
+    console.log('Отрицательный');
+    break;
+  default:
+    console.log('Ноль');
 }
