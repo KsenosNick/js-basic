@@ -1,10 +1,15 @@
 'use strict';
 
-const bmwX3Price = 100000;
-const fordFocusPrice = 10000;
-const budget = 20000;
+const verification = prompt('Сколько будет 7 + или - 15?');
 
-let message =
-  budget > bmwX3Price ? 'BMW' : budget > fordFocusPrice ? 'Ford' : 'Велосипед';
+switch (true) {
+  case +verification === 23:
+  case +verification === -8:
+  case verification === 'Я не робот':
+    console.log('Успех');
+    break;
 
-console.log(`Я хочу купить ${message}`);
+  default:
+    console.log('Вы робот');
+    break;
+}
