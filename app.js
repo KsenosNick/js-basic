@@ -1,15 +1,19 @@
 'use strict';
 
-const verification = prompt('Сколько будет 7 + или - 15?');
+const isAdmin = true;
+const canWrite = true;
+const isSuperAdmin = true;
 
-switch (true) {
-  case +verification === 23:
-  case +verification === -8:
-  case verification === 'Я не робот':
-    console.log('Успех');
-    break;
+console.log(`Системный файл ${isAdmin && canWrite}`);
+console.log(`Обычный файл ${isAdmin || canWrite}`);
+console.log(`Инвертировать права админа ${!isAdmin}`);
 
-  default:
-    console.log('Вы робот');
-    break;
+const isEdited = true;
+console.log(
+  `Системный файл с редактированием ${isAdmin && canWrite && !isEdited}`
+);
+console.log(`Системный файл с редактированием ${isAdmin && canWrite && (!isEdited || isSuperAdmin)}`);
+
+if (a === -8 || a === 22) {
+  
 }
