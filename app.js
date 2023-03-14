@@ -1,9 +1,12 @@
 'use strict';
 
-function toPower(num, power = 2) {  
-  const res = num ** power;
-  return res;
+function caAccessWebsite(age) {
+  if (age < 18) {
+    return false;
+  }
+  return true;
 }
+console.log(caAccessWebsite(19));
 
-console.log(toPower(2, 3));
-console.log(toPower(2));
+const canAccessWebSite2 = age => age < 18 ? 'Нет' : 'Да';
+console.log(canAccessWebSite2(19));
