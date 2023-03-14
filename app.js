@@ -1,10 +1,4 @@
 'use strict';
 
-const powerOfTwo = (num) => {
-  console.log(num);
-  return num * num;
-};
-console.log(powerOfTwo(5));
-
-const poft = (num) => num * num;
-console.log(poft(6));
+const toPower = (num, power) => num ** power;
+console.log(toPower(2, 3));
