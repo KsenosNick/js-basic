@@ -1,12 +1,17 @@
 'use strict';
 
-const balance = 200;
-const bonusBalance = 80;
-const isBanned = false;
-const isExist = true;
-const isSelling = true;
+function logName(name, surname) {
+  console.log(`Моё имя ${name} ${surname}`);
+}
 
-const canBuy =
-  (balance > 1000 || bonusBalance > 100) && !isBanned && isExist && isSelling;
+logName('Николай', 'Малютин');
 
-console.log(canBuy);
+function countDepositeSum(depositInUSD, month, rate) {
+  return depositInUSD * (1 + rate / 12) ** month;
+}
+
+const example1 = countDepositeSum(1000, 24, 0.12);
+console.log(example1);
+
+const example2 = countDepositeSum(1000, 48, 0.1);
+console.log(example2);
