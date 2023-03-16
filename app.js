@@ -1,18 +1,26 @@
 'use strict';
 
-function creditCalc(age, hasJob = false) {
-  switch (true) {
-    case age > 24 && hasJob:
-      return 500;
-    case age > 24:
-      return 100;
-    default:
-      return 0;
-  }
+const role1 = 'admin';
+const role2 = 'user';
+const role3 = 'superUser';
+
+const roles = ['admin', 'user', 'superuser'];
+const userInfo = ['Аня', 25];
+
+console.log(roles);
+console.log(roles[0]);
+console.log(roles[roles.length - 1]);
+
+// console.log(roles.at(-1)); - пока не везде поддерживается
+
+const usersAge = [2040 -2022, 20 - '6', 10 > 0 ? 5 : 0];
+console.log(usersAge);
+
+const usersNames = new Array('Вася', 'Петя', 'Катя');
+console.log(usersNames);
+
+function square(el) {
+  return el * el;
 }
 
-function canBuyMacBook(age, hasJob, money, productPrice) {
-  return money + creditCalc(age, hasJob) >= productPrice;
-}
-
-console.log(canBuyMacBook(25, true, 1550, 2000));
+console.log(square([1, 2, 3]));
