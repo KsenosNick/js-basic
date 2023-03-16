@@ -1,19 +1,20 @@
 'use strict';
 
-const users = ['Аня', 'Вика', 'Катя'];
-console.log(users);
+const roles = ['user', 'admin', 'manager'];
 
-users[2] = 'Марина';
-console.log(users);
+const elIndex1 = roles.indexOf('admin');
+console.log(elIndex1);
 
-console.log(users.push('Никита'));
-console.log(users);
+const elIndex2 = roles.indexOf('superuser');
+console.log(elIndex2);
 
-console.log(users.unshift('Вася'));
-console.log(users);
+if (roles.indexOf('admin') >= 0) {
+  console.log('Доступ есть');
+}
 
-console.log(users.pop());
-console.log(users);
+console.log(roles.includes('admin'));
+console.log(roles.includes('superadmin'));
 
-console.log(users.shift());
-console.log(users);
+if (roles.includes('admin')) {
+  console.log('Доступ есть');
+}
