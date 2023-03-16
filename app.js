@@ -1,20 +1,18 @@
 'use strict';
-const KG_IN_USD = 7;
-const KM_IN_USD = 5;
 
-function calcWeight(present) {
-  return present * KG_IN_USD;
+function creditCalc(age, hasJob = false) {
+  switch (true) {
+    case age > 24 && hasJob:
+      return 500;
+    case age > 24:
+      return 100;
+    default:
+      return 0;
+  }
 }
 
-function calcDist(distance) {
-  return distance * KM_IN_USD;
+function canBuyMacBook(age, hasJob, money, productPrice) {
+  return money + creditCalc(age, hasJob) >= productPrice;
 }
 
-function getExchangePrice(present1, present2, distance) {
-  const price1 = calcWeight(present1);
-  const price2 = calcWeight(present2);
-  const distancePrice = calcDist(distance);
-  return price1 + price2 + distancePrice;
-}
-
-console.log(getExchangePrice(1, 2, 10));
+console.log(canBuyMacBook(25, true, 1550, 2000));
