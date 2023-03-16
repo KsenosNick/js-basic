@@ -1,26 +1,19 @@
 'use strict';
 
-const role1 = 'admin';
-const role2 = 'user';
-const role3 = 'superUser';
+const users = ['Аня', 'Вика', 'Катя'];
+console.log(users);
 
-const roles = ['admin', 'user', 'superuser'];
-const userInfo = ['Аня', 25];
+users[2] = 'Марина';
+console.log(users);
 
-console.log(roles);
-console.log(roles[0]);
-console.log(roles[roles.length - 1]);
+console.log(users.push('Никита'));
+console.log(users);
 
-// console.log(roles.at(-1)); - пока не везде поддерживается
+console.log(users.unshift('Вася'));
+console.log(users);
 
-const usersAge = [2040 -2022, 20 - '6', 10 > 0 ? 5 : 0];
-console.log(usersAge);
+console.log(users.pop());
+console.log(users);
 
-const usersNames = new Array('Вася', 'Петя', 'Катя');
-console.log(usersNames);
-
-function square(el) {
-  return el * el;
-}
-
-console.log(square([1, 2, 3]));
+console.log(users.shift());
+console.log(users);
