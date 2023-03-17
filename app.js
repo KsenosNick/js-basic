@@ -1,10 +1,32 @@
 'use strict';
 
-const roles = ['user', 'admin', 'manager', 'superuser'];
+const tasks = ['Задача 1'];
 
-const url = '/auth/user/login';
-const res = url.split('/');
+function addTask(taskArr, newTask) {
+  taskArr.push(newTask);
+}
 
-console.log(res);
+function delTask(taskArr, task) {
+  if (taskArr.includes(task)) {
+    const taskIndex = taskArr.indexOf(task);
+    taskArr.splice(taskIndex, 1);
+  }
+}
 
-console.log(roles.join('-'));
+function moveTask(taskArr, task) {
+  if (taskArr.includes(task)) {
+    const taskIndex = taskArr.indexOf(task);
+    taskArr.splice(taskIndex, 1);
+    taskArr.unshift(task);
+  }
+}
+
+addTask(tasks, 'Задача 2');
+addTask(tasks, 'Задача 3');
+addTask(tasks, 'Задача 4');
+console.log(tasks);
+
+delTask(tasks, 'Задача 3');
+
+moveTask(tasks, 'Задача 5');
+console.log(tasks);
