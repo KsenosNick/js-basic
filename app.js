@@ -1,35 +1,15 @@
 'use strict';
 
-// DRY - DO NOT REPEAT YOURSELF
+const userData = ['Николая', 38, 'Выкса'];
 
-const tasks = ['Задача 1'];
-
-function addTask(taskArr, newTask) {
-  taskArr.push(newTask);
+function getData() {
+  return ['Николая', 38, 'Выкса'];
 }
 
-function delTask(taskArr, task) {
-  const index = tasks.indexOf(task);
-  if (index === -1) {
-    return;
-  }
-  return tasks.splice(index, 1)
-}
+// const userName = [0];
+// const age = getData()[1];
+// const city = getData()[2];
 
-function moveTask(taskArr, task) {
-  const result = delTask(taskArr, task);
-  if (!result) {
-    return;
-  }
-  tasks.unshift(result[0]);
-}
+const [userName, _, city] = getData();
 
-addTask(tasks, 'Задача 2');
-addTask(tasks, 'Задача 3');
-addTask(tasks, 'Задача 4');
-console.log(tasks);
-
-delTask(tasks, 'Задача 3');
-
-moveTask(tasks, 'Задача 4');
-console.log(tasks);
+console.log(userName, city);
