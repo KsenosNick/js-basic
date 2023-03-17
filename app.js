@@ -1,5 +1,7 @@
 'use strict';
 
+// DRY - DO NOT REPEAT YOURSELF
+
 const tasks = ['Задача 1'];
 
 function addTask(taskArr, newTask) {
@@ -7,18 +9,19 @@ function addTask(taskArr, newTask) {
 }
 
 function delTask(taskArr, task) {
-  if (taskArr.includes(task)) {
-    const taskIndex = taskArr.indexOf(task);
-    taskArr.splice(taskIndex, 1);
+  const index = tasks.indexOf(task);
+  if (index === -1) {
+    return;
   }
+  return tasks.splice(index, 1)
 }
 
 function moveTask(taskArr, task) {
-  if (taskArr.includes(task)) {
-    const taskIndex = taskArr.indexOf(task);
-    taskArr.splice(taskIndex, 1);
-    taskArr.unshift(task);
+  const result = delTask(taskArr, task);
+  if (!result) {
+    return;
   }
+  tasks.unshift(result[0]);
 }
 
 addTask(tasks, 'Задача 2');
@@ -28,5 +31,5 @@ console.log(tasks);
 
 delTask(tasks, 'Задача 3');
 
-moveTask(tasks, 'Задача 5');
+moveTask(tasks, 'Задача 4');
 console.log(tasks);
