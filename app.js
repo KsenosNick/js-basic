@@ -1,13 +1,19 @@
 'use strict';
 
-const arr = ['!', 'JS', 'люблю', 'Я'];
-
-function invertArr(arr) {
-  const newArr = [];
-  for (let i = arr.length - 1; i >= 0; i--) {
-    newArr.push(arr[i]);
+for (let i = 1; i < 5; i++) {
+  console.log(`Цикл 1 - ${i}`);
+  for (let j = 1; j < 5; j++) {
+    console.log(`Цикл 2 - ${i}`);
   }
-  console.log(newArr.join(' '));
 }
 
-invertArr(arr);
+const tasks = [
+  [1, 'Задача 1'],
+  [2, 'Зачада 2'],
+];
+
+for (let i = 0; i < tasks.length; i++) {
+  for (let j = 0; j < tasks.length; j++) {
+    console.log(`${tasks[i][j]}`);
+  }
+}
