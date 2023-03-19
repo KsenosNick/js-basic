@@ -1,42 +1,21 @@
 'use strict';
 
-const startBalance = 100;
-const operations = [1000, -700, 300, -500, 10000];
-
-function getBalance(startBalance, operations) {
-  let balance = startBalance;
-  for (const i of operations) {
-    balance += i;
-  }
-  return balance;
+function add(a, b) {
+  return a + b;
 }
 
-function checkBalance(startBalance, operations) {
-  let balance = startBalance;
-  for (const i of operations) {
-    if (balance < 0) {
-      return false;
-    }
-    balance += i;
-  }
-  return true;
+function subtract(a, b) {
+  return a - b;
 }
 
-function averageOperations(operations) {
-  let incomeSum = 0;
-  let incomeCount = 0;
-  let consumptionSum = 0;
-  let consumptionCount = 0;
-
-  for (const i of operations) {
-    if (i > 0) {
-      incomeSum += i;
-      incomeCount++;
-    } else {
-      consumptionSum += i;
-      consumptionCount++;
-    }
-  }
-
-  return [incomeSum / incomeCount, consumptionSum / consumptionCount];
+// Функция высшего порядка
+function calculate(a, b, fn) {
+  console.log(fn.name);
+  const res = fn(a, b);
+  return res;
 }
+let res = calculate(3, 5, add);
+console.log(res);
+
+res = calculate(3, 5, subtract);
+console.log(res);
