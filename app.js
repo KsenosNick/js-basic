@@ -1,5 +1,14 @@
 'use strict';
 
-const power = (pow) => (num) => num ** pow;
+const score = [5, 10, 0, 15];
 
-console.log(power(5)(4));
+/* for (const [i, el] of score.entries()) {
+  console.log(`Раунд ${i + 1}: ${el}`);
+}
+ */
+
+const iterator = (el, i) => {
+  console.log(`Раунд ${i + 1}: ${el}`);
+};
+
+score.forEach(iterator);
