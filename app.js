@@ -1,16 +1,23 @@
 'use strict';
 
-const transcationsInUSD = [10, -7, 50, -10, 100];
+const operations = [100, -20, 7, -20, 50];
 
-/* const transactionInRubles = [];
-for (const transaction of transcationsInUSD) {
-    transactionInRubles.push(transaction * 60);
+/* const positiveOperations = [];
+for (const operation of operations) {
+    if (operation > 0) {
+        positiveOperations.push(operation);
+    }
 } */
 
-const transactionInRubles = transcationsInUSD.map((transaction, i) => {
-  console.log(i);
-  return transaction * 60;
+const positiveOperations = operations.filter((operation) => {
+  return operation > 0;
 });
+console.log(positiveOperations);
 
-console.log(transcationsInUSD);
-console.log(transactionInRubles);
+const positiveRubOperations = operations
+  .filter((operation) => {
+    return operation > 0;
+  })
+  .map((operation) => operation * 60);
+
+  console.log(positiveRubOperations);
