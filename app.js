@@ -1,15 +1,32 @@
 'use strict';
 
-const prices = [
-  [100, 200],
-  [120, 100],
-  [200, 350],
-];
+const operations = [100, -20, 7, -30, 50];
 
-const deltaPositive = prices
-  .filter((pricesEl) => {
-    return pricesEl[1] > pricesEl[0];
-  })
-  .map((pricesEl) => pricesEl[1] - pricesEl[0]);
+let balance = 0;
 
-console.log(deltaPositive);
+for (const operation of operations) {
+  balance += operation;
+}
+
+console.log(balance);
+
+const finalBalance = operations.reduce((acc, operation, i) => {
+  console.log(`Итерация: ${i}, acc: ${acc}, operation ${operation}`);
+  return (acc += operation);
+}, 0);
+
+console.log(finalBalance);
+
+// 0 - acc = 0, value = 100
+// 1 - acc = 100, value = -20
+// ...
+
+const minElement = operations.reduce((acc, operation, i) => {
+  if (operation > acc) {
+    return acc;
+  } else {
+    return operation;
+  }
+}, 0);
+
+console.log(minElement);
