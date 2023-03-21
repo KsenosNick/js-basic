@@ -1,23 +1,15 @@
 'use strict';
 
-const operations = [100, -20, 7, -20, 50];
+const prices = [
+  [100, 200],
+  [120, 100],
+  [200, 350],
+];
 
-/* const positiveOperations = [];
-for (const operation of operations) {
-    if (operation > 0) {
-        positiveOperations.push(operation);
-    }
-} */
-
-const positiveOperations = operations.filter((operation) => {
-  return operation > 0;
-});
-console.log(positiveOperations);
-
-const positiveRubOperations = operations
-  .filter((operation) => {
-    return operation > 0;
+const deltaPositive = prices
+  .filter((pricesEl) => {
+    return pricesEl[1] > pricesEl[0];
   })
-  .map((operation) => operation * 60);
+  .map((pricesEl) => pricesEl[1] - pricesEl[0]);
 
-  console.log(positiveRubOperations);
+console.log(deltaPositive);
