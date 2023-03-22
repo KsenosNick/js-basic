@@ -1,20 +1,13 @@
 'use strict';
 
-const arr = [2, 4, 4, 10, 20];
+const arr = [2, 4, 3, 10, 20];
 
-let elGT5;
-
-for (const el of arr) {
-  if (el > 5) {
-    elGT5 = el;
-    break;
+function some(arr, item) {
+  if (arr.find((el) => el === item)) {
+    return true;
+  } else {
+    return false;
   }
 }
 
-// console.log(elGT5);
-
-elGT5 = arr.find(el => el >5);
-const elGT5Index = arr.findIndex(el => el < 0);
-
-console.log(elGT5Index);
-
+console.log(some(arr, 6));
