@@ -1,12 +1,12 @@
 'use strict';
 
-const arr = [2, 4, 3, 10, 20];
+const prices = [
+  [2, 4],
+  [3, 4],
+  [10, [20, 50]],
+];
 
-// function some(arr, element) {
-//   const res = arr.find(el => el === element);
-//   return res === undefined ? false : true;
-// }
-
-// console.log(some(arr, 3));
-
-console.log(arr.some(el => el === 0));
+const res = prices.flat(10);
+const res2 = prices.flatMap(el => el.concat([1]));
+console.log(res);
+console.log(res2);
