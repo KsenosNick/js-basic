@@ -1,12 +1,15 @@
 'use strict';
 
-const prices = [
-  [2, 4],
-  [3, 4],
-  [10, [20, 50]],
-];
+const users = ['Вася', 'Маша', 'Катя', 'Аня'];
+console.log(users);
 
-const res = prices.flat(10);
-const res2 = prices.flatMap(el => el.concat([1]));
-console.log(res);
-console.log(res2);
+users.sort();
+console.log(users);
+
+const operations = [100, -30, -100, 50, 480];
+console.log(operations);
+
+// < 0 - a, b (сохраняем порядок);
+// > 0 - b, a (меняем порядок);
+operations.sort((a, b) => b - a);
+console.log(operations);
