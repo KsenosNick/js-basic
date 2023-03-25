@@ -1,20 +1,20 @@
 'use strict';
 
-const arr = [1, 2, 3, 4, 5];
-console.log(arr);
+const userName = 'Вася Пупкина';
 
-console.log(new Array(1, 2, 3, 4, 5));
+console.log(userName[0]);
+console.log(userName[1]);
+console.log(userName[2]);
 
-const arr2 = new Array(5);
-console.log(arr2);
+console.log(userName.charAt(3));
 
-arr2.fill(1, 0, 3);
-console.log(arr2);
-arr2.fill(2, 3, 5);
-console.log(arr2);
+console.log(userName.length);
+console.log(userName.indexOf('а'));
+console.log(userName.lastIndexOf('а'));
+console.log(userName.lastIndexOf('А'));
+console.log(userName.includes('П'));
+console.log(userName.includes('eП'));
 
-const arr3 = Array.from({ length: 5 }, (cur, i) => i + 1);
-console.log(arr3);
+console.log(userName.slice(4));
 
-let res = arr.map(e => [e * 2]).flat().reduce((acc, el) => acc -= el, 0)
-console.log(res);
+console.log(userName.slice(4, 8));
