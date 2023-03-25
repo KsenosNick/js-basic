@@ -1,15 +1,20 @@
 'use strict';
 
-const users = ['Вася', 'Маша', 'Катя', 'Аня'];
-console.log(users);
+const arr = [1, 2, 3, 4, 5];
+console.log(arr);
 
-users.sort();
-console.log(users);
+console.log(new Array(1, 2, 3, 4, 5));
 
-const operations = [100, -30, -100, 50, 480];
-console.log(operations);
+const arr2 = new Array(5);
+console.log(arr2);
 
-// < 0 - a, b (сохраняем порядок);
-// > 0 - b, a (меняем порядок);
-operations.sort((a, b) => b - a);
-console.log(operations);
+arr2.fill(1, 0, 3);
+console.log(arr2);
+arr2.fill(2, 3, 5);
+console.log(arr2);
+
+const arr3 = Array.from({ length: 5 }, (cur, i) => i + 1);
+console.log(arr3);
+
+let res = arr.map(e => [e * 2]).flat().reduce((acc, el) => acc -= el, 0)
+console.log(res);
