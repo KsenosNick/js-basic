@@ -1,32 +1,31 @@
 'use strict';
 
-const wallet = {
-  balance: 0,
-  operations: [],
-
-  increase: function (sum, reason) {
-    this.balance += sum;
-    this.operations.push({
-      sum,
-      reason,
-    });
-    return true;
+const cities = {
+  msk: {
+    let: 200,
+    temp: 25,
   },
-
-  decrease: function (sum, reason) {
-    if (this.balance < sum) {
-      console.log('Недостаточно баланса');
-      return false;
-    }
-    this.balance -= sum;
-    this.operations.push({
-      sum: -sum,
-      reason,
-    });
-    return true;
-  },
-
-  getOperations: function () {
-    return this.operations.length;
+  spb: {
+    let: 100,
+    temp: 20,
   },
 };
+
+let sumTemp = 0;
+let citiesCount = Object.keys(cities).length;
+
+console.log(Object.keys(cities));
+
+for (const key in cities) {
+  console.log(key);
+  citiesCount++;
+  sumTemp += cities[key].temp;
+}
+
+console.log(sumTemp / citiesCount);
+
+for (const key of Object.keys(cities)) {
+  sumTemp += cities[key].temp;
+}
+
+console.log(sumTemp / citiesCount);
