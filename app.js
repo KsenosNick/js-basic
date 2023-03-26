@@ -20,7 +20,7 @@ const wallet = {
     }
     this.balance -= sum;
     this.operations.push({
-      sum,
+      sum: -sum,
       reason,
     });
     return true;
