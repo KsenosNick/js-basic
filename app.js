@@ -1,25 +1,13 @@
 'use strict';
 
-const users = [
-  {
-    name: 'Вася',
-    surname: 'Пупкин',
-    age: 30,
-    skills: ['Разработка', 'DevOps'],
-  },
-  {
-    name: 'Катя',
-    surname: 'Белова',
-    age: 18,
-    skills: ['Дизайн'],
-  },
-];
+const user = {
+  name: 'Вася',
+  surname: 'Пупкин',
+  age: 24,
 
-const users2 = users.map((user) => {
-  return {
-    fullName: `${user.name} ${user.surname}`,
-    skillsNum: user.skills.length,
-  };
-});
+  getFullName: function () {
+    return this.name + ' ' + this.surname;
+  },
+};
 
-console.log(users2);
+console.log(user.getFullName());
