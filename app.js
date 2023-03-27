@@ -1,31 +1,26 @@
 'use strict';
 
-const cities = {
-  msk: {
-    let: 200,
-    temp: 25,
-  },
-  spb: {
-    let: 100,
-    temp: 20,
-  },
+const arr = [1, 2, 4];
+const [z, y, x] = arr;
+console.log(x, y, z);
+
+let user = {
+  name: 'Вася',
+  age: 40,
+  city: 'Москва',
 };
 
-let sumTemp = 0;
-let citiesCount = Object.keys(cities).length;
+const { age, ...userWithoutAge } = user;
+console.log(age);
+console.log(userWithoutAge);
 
-console.log(Object.keys(cities));
+const additionData = {
+  skills: ['Разработка', 'Дизайн'],
+  creadiCard: '2343-2345-2734-2356',
+};
 
-for (const key in cities) {
-  console.log(key);
-  citiesCount++;
-  sumTemp += cities[key].temp;
-}
-
-console.log(sumTemp / citiesCount);
-
-for (const key of Object.keys(cities)) {
-  sumTemp += cities[key].temp;
-}
-
-console.log(sumTemp / citiesCount);
+user = {
+  ...user,
+  ...additionData,
+};
+console.log(user);
