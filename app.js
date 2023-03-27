@@ -1,26 +1,18 @@
 'use strict';
 
-const arr = [1, 2, 4];
-const [z, y, x] = arr;
-console.log(x, y, z);
-
-let user = {
-  name: 'Вася',
-  age: 40,
-  city: 'Москва',
+const cities = {
+  msk: {
+    temp: {
+      celsius: 25,
+    },
+  },
+  spb: {},
 };
 
-const { age, ...userWithoutAge } = user;
-console.log(age);
-console.log(userWithoutAge);
+const city = 'spb';
 
-const additionData = {
-  skills: ['Разработка', 'Дизайн'],
-  creadiCard: '2343-2345-2734-2356',
-};
+if (cities[city] != undefined && cities[city].temp != undefined) {
+  console.log(cities[city].temp.celsius);
+}
 
-user = {
-  ...user,
-  ...additionData,
-};
-console.log(user);
+console.log(cities[city]?.temp?.celsius);
