@@ -1,55 +1,22 @@
 'use strict';
 
-const warehouse = {
-  goods: [],
-  findGoodById: function (id) {
-    return this.goods.find((good) => good.id === id);
-  },
-  addGood: function (good) {
-    const existedGood = this.findGoodById(good.id);
-    if (existedGood) {
-      console.log(`Товар id = ${good.id} уже есть`);
-      return;
-    }
-    this.goods.push(good);
-  },
-  getWeightKg: function () {
-    return this.goods.reduce((acc, good) => {
-      return (acc += good.weight?.kg ? good.weight.kg : 0);
-    }, 0);
-  },
-};
-
-/* Товары */
-
-const car = {
+const user = {
+  name: 'Николай',
   id: 1,
-  weight: {
-    kg: 1000,
-  },
-  brand: 'Ford',
+  roles: ['Админ'],
 };
 
-const chair = {
-  id: 2,
-  weight: {
-    kg: 2,
-  },
+// const newUser = Object.assign({}, user);
+// user.name = 'NewUser';
+// console.log(user);
+// console.log(newUser);
+
+const newUser2 = {
+  ...user,
 };
 
-const paper = {
-  id: 3,
-  color: 'red',
-};
+newUser2.name = 'NewUser';
+newUser2.roles.push('User');
 
-warehouse.addGood(car);
-warehouse.addGood(chair);
-warehouse.addGood(chair);
-warehouse.addGood(paper);
-warehouse.addGood(paper);
-
-console.log(warehouse);
-
-// console.log(warehouse.findGoodById(1));
-console.log(warehouse.getWeightKg());
-// console.log();
+console.log(user);
+console.log(newUser2);
