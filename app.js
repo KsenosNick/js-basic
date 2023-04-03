@@ -1,15 +1,15 @@
 'use strict';
 
-function sumNum(num1, num2) {
-  console.log(this);
-  console.log(arguments);
-  return num1 + num2;
-}
+const b = 1;
 
-console.log(sumNum(1, 3, 4, 5));
-
-const sumNum = (num1, num2) => {
-  console.log(this);
-  console.log(arguments);
-  return num1 + num2;
+const a = {
+  b,
+  getB: function () {
+    return this.b;
+  },
+  getBAlt() {
+    return this.b;
+  },
 };
+
+console.log(a.getBAlt());
