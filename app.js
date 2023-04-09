@@ -12,3 +12,5 @@ const change = changeBalance();
 change(100);
 change(-50);
 change(200);
+
+console.dir(change);
