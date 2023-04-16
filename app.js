@@ -26,12 +26,10 @@ function inputChanged(e) {
   }
 }
 
-const panelText = 'Панель';
-const panelClass = 'button';
-const newElement = document.createElement('div');
-newElement.setAttribute('user-id', 1);
-newElement.classList.add('panel');
-// newElement.innerText = 'Кнопка';
-newElement.innerHTML = `<button class=${panelClass}>${panelText}</button>`;
+localStorage.setItem('token', 'vjnrvzr');
+localStorage.setItem('token1', 1);
+localStorage.setItem('token2', true);
 
-document.querySelector('.test').appendChild(newElement);
+console.log(localStorage.getItem('token1'));
+localStorage.removeItem('token2');
+localStorage.clear();
