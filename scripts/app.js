@@ -20,3 +20,5 @@ function inputChanged(e) {
     submitForm();
   }
 }
+
+console.log(localStorage.getItem('a'));
