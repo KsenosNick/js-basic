@@ -1,24 +1,21 @@
 'use strict';
 
-function submitForm() {
-  const input = document.querySelector('.input').value;
-  if (!input) {
-    return;
-  }
-  document.querySelector('.panel').innerText = input;
-  document.querySelector('input').value = '';
-  document.querySelector('.notification').setAttribute('user-id', 1);
-  const textString = JSON.stringify({
-    text: input,
-  });
+let habbits = [];
+const HABBIT_KEY = 'HABBIT_KEY';
 
-  localStorage.setItem('text', textString);
-}
-
-function inputChanged(e) {
-  if (e.key === 'Enter') {
-    submitForm();
+/* utils */
+function loadData() {
+  const habbitString = localStorage.getItem(HABBIT_KEY);
+  const habbitArray = JSON.parse(habbitString);
+  if (Array.isArray(habbitArray)) {
+    habbits = habbitArray;
   }
 }
 
-console.log(localStorage.getItem('a'));
+function saveData() {
+  localStorage.setItem(HABBIT_KEY, JSON.stringify(habbits));
+}
+
+(() => {
+  loadData();
+})();
