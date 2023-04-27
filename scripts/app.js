@@ -11,6 +11,7 @@ const page = {
     progressPercent: document.querySelector('.progress__percent'),
     progressCoverBar: document.querySelector('.progress__cover-bar'),
   },
+  content: document.querySelector('.days'),
 };
 
 /* utils */
@@ -63,13 +64,45 @@ function rerenderHead(activeHabbit) {
       ? 100
       : (activeHabbit.days.length / activeHabbit.target) * 100;
   page.header.progressPercent.innerText = progress.toFixed(0);
-  page.header.progressCoverBar.setAttribute('style', `width: ${progress}%`)
+  page.header.progressCoverBar.setAttribute('style', `width: ${progress}%`);
+}
+
+function rerenderContent(activeHabbit) {
+  if (!activeHabbit) {
+    return;
+  }
+  const days = activeHabbit.days;
+  document.querySelector('.days').innerHTML = '';
+
+  days.forEach(() => {
+    const habbit = document.createElement('div');
+    habbit.classList.add('habbit');
+    page.content.appendChild(habbit);
+  });
+
+  const habbits = document.querySelectorAll('.habbit');
+  
+  for (let i = 0; i < habbits.length; i++) {
+    const habbitDay = document.createElement('div');
+    const habbitComment = document.createElement('habbit__comment');
+    const button = document.createElement('button');
+    habbitDay.classList.add('habbit__day');
+    habbitComment.classList.add('habbit__comment');
+    button.classList.add('habbit__delete');
+    habbitDay.innerText = `День ${i + 1}`;
+    habbitComment.innerText = days[i].comment;
+    button.innerHTML = `<img src="./images/delete.svg" alt="${habbits[i].name}"  alt="Удалить день" />`;
+    habbits[i].appendChild(habbitDay);
+    habbits[i].appendChild(habbitComment);
+    habbits[i].appendChild(button);
+  }
 }
 
 function rerender(activeHabbitId) {
   const activeHabbit = habbits.find((habbit) => habbit.id === activeHabbitId);
   rerenderMenu(activeHabbit);
   rerenderHead(activeHabbit);
+  rerenderContent(activeHabbit);
 }
 
 /* init */
