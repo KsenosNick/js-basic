@@ -12,9 +12,8 @@ const page = {
     progressCoverBar: document.querySelector('.progress__cover-bar'),
   },
   content: {
-    days: document.querySelector('.days'),
-    day: document.querySelector('.habbit__day'),
-    comment: document.querySelector('.habbit__comment'),
+    daysContainer: document.getElementById('days'),
+    nextDay: document.querySelector('.habbit__day'),
   },
 };
 
@@ -33,9 +32,6 @@ function saveData() {
 
 /* render */
 function rerenderMenu(activeHabbit) {
-  if (!activeHabbit) {
-    return;
-  }
   for (const habbit of habbits) {
     const existed = document.querySelector(`[menu-habbit-id="${habbit.id}"]`);
     if (!existed) {
@@ -59,9 +55,6 @@ function rerenderMenu(activeHabbit) {
 }
 
 function rerenderHead(activeHabbit) {
-  if (!activeHabbit) {
-    return;
-  }
   page.header.h1.innerText = activeHabbit.name;
   const progress =
     activeHabbit.days.length / activeHabbit.target > 1
@@ -72,70 +65,29 @@ function rerenderHead(activeHabbit) {
 }
 
 function rerenderContent(activeHabbit) {
-  if (!activeHabbit) {
-    return;
+  page.content.daysContainer.innerHTML = '';
+  for (const index in activeHabbit.days) {
+    const element = document.createElement('div');
+    element.classList.add('habbit');
+    element.innerHTML = `<div class="habbit__day">День ${+index + 1}</div>
+      <div class="habbit__comment">
+        ${activeHabbit.days[index].comment}
+      </div>
+      <button class="habbit__delete">
+        <img src="./images/delete.svg" alt="Удалить день ${+index + 1}" srcset="" />
+      </button>`;
+    page.content.daysContainer.appendChild(element);
   }
-  const days = activeHabbit.days;
-  console.log(days);
-  page.content.days.innerHTML = '';
-
-  days.forEach(() => {
-    const habbit = document.createElement('div');
-    habbit.classList.add('habbit');
-    page.content.days.appendChild(habbit);
-  });
-
-  const habbits = document.querySelectorAll('.habbit');
-
-  for (let i = 0; i < habbits.length; i++) {
-    const habbitDay = document.createElement('div');
-    const habbitComment = document.createElement('habbit__comment');
-    const button = document.createElement('button');
-    habbitDay.classList.add('habbit__day');
-    habbitComment.classList.add('habbit__comment');
-    button.classList.add('habbit__delete');
-    habbitDay.innerText = `День ${i + 1}`;
-    habbitComment.innerText = days[i].comment;
-    button.innerHTML = `<img src="./images/delete.svg" alt="${habbits[i].name}"  alt="Удалить день" />`;
-    habbits[i].appendChild(habbitDay);
-    habbits[i].appendChild(habbitComment);
-    habbits[i].appendChild(button);
-  }
-
-  const lastHabbit = document.createElement('div');
-  const lastHabbitDay = document.createElement('div');
-  const habbitForm = document.createElement('form');
-  const inputIcon = document.createElement('image');
-  const input = document.createElement('input');
-  const habbitFormButton = document.createElement('button');
-
-  lastHabbit.classList.add('habbit');
-  lastHabbitDay.classList.add('habbit__day');
-  habbitForm.classList.add('habbit__form');
-  inputIcon.classList.add('input__icon');
-  input.classList.add('input_icon');
-  habbitFormButton.classList.add('button');
-
-  inputIcon.setAttribute('src', './images/comment.svg');
-  inputIcon.setAttribute('alt', 'Иконка комментацрия');
-  input.setAttribute('type', 'text');
-  input.setAttribute('placeholder', 'Комментарий');
-
-  lastHabbitDay.innerText = `День ${habbits.length + 1}`;
-  habbitFormButton.innerText = 'Готово';
-
-  page.content.days.appendChild(lastHabbit);
-
-  habbitForm.appendChild(inputIcon);
-  habbitForm.appendChild(input);
-  habbitForm.appendChild(habbitFormButton);
-
-  lastHabbit.appendChild(lastHabbitDay);
-  lastHabbit.appendChild(habbitForm);
+  page.content.nextDay.innerHTML = `День ${activeHabbit.days.length + 1}`;
+  
 }
 
 function rerender(activeHabbitId) {
+  
   const activeHabbit = habbits.find((habbit) => habbit.id === activeHabbitId);
+  if (!activeHabbit) {
+    return;
+  }
   rerenderMenu(activeHabbit);
   rerenderHead(activeHabbit);
   rerenderContent(activeHabbit);
