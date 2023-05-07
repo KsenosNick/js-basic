@@ -11,7 +11,11 @@ const page = {
     progressPercent: document.querySelector('.progress__percent'),
     progressCoverBar: document.querySelector('.progress__cover-bar'),
   },
-  content: document.querySelector('.days'),
+  content: {
+    days: document.querySelector('.days'),
+    day: document.querySelector('.habbit__day'),
+    comment: document.querySelector('.habbit__comment'),
+  },
 };
 
 /* utils */
@@ -72,16 +76,17 @@ function rerenderContent(activeHabbit) {
     return;
   }
   const days = activeHabbit.days;
-  document.querySelector('.days').innerHTML = '';
+  console.log(days);
+  page.content.days.innerHTML = '';
 
   days.forEach(() => {
     const habbit = document.createElement('div');
     habbit.classList.add('habbit');
-    page.content.appendChild(habbit);
+    page.content.days.appendChild(habbit);
   });
 
   const habbits = document.querySelectorAll('.habbit');
-  
+
   for (let i = 0; i < habbits.length; i++) {
     const habbitDay = document.createElement('div');
     const habbitComment = document.createElement('habbit__comment');
@@ -96,6 +101,37 @@ function rerenderContent(activeHabbit) {
     habbits[i].appendChild(habbitComment);
     habbits[i].appendChild(button);
   }
+
+  const lastHabbit = document.createElement('div');
+  const lastHabbitDay = document.createElement('div');
+  const habbitForm = document.createElement('form');
+  const inputIcon = document.createElement('image');
+  const input = document.createElement('input');
+  const habbitFormButton = document.createElement('button');
+
+  lastHabbit.classList.add('habbit');
+  lastHabbitDay.classList.add('habbit__day');
+  habbitForm.classList.add('habbit__form');
+  inputIcon.classList.add('input__icon');
+  input.classList.add('input_icon');
+  habbitFormButton.classList.add('button');
+
+  inputIcon.setAttribute('src', './images/comment.svg');
+  inputIcon.setAttribute('alt', 'Иконка комментацрия');
+  input.setAttribute('type', 'text');
+  input.setAttribute('placeholder', 'Комментарий');
+
+  lastHabbitDay.innerText = `День ${habbits.length + 1}`;
+  habbitFormButton.innerText = 'Готово';
+
+  page.content.days.appendChild(lastHabbit);
+
+  habbitForm.appendChild(inputIcon);
+  habbitForm.appendChild(input);
+  habbitForm.appendChild(habbitFormButton);
+
+  lastHabbit.appendChild(lastHabbitDay);
+  lastHabbit.appendChild(habbitForm);
 }
 
 function rerender(activeHabbitId) {
