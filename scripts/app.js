@@ -74,16 +74,16 @@ function rerenderContent(activeHabbit) {
         ${activeHabbit.days[index].comment}
       </div>
       <button class="habbit__delete">
-        <img src="./images/delete.svg" alt="Удалить день ${+index + 1}" srcset="" />
+        <img src="./images/delete.svg" alt="Удалить день ${
+          +index + 1
+        }" srcset="" />
       </button>`;
     page.content.daysContainer.appendChild(element);
   }
   page.content.nextDay.innerHTML = `День ${activeHabbit.days.length + 1}`;
-  
 }
 
 function rerender(activeHabbitId) {
-  
   const activeHabbit = habbits.find((habbit) => habbit.id === activeHabbitId);
   if (!activeHabbit) {
     return;
@@ -91,6 +91,14 @@ function rerender(activeHabbitId) {
   rerenderMenu(activeHabbit);
   rerenderHead(activeHabbit);
   rerenderContent(activeHabbit);
+}
+
+/* work with days */
+function addDays(event) {
+  event.preventDefault();
+  console.log(event);
+  const data = new FormData(event.target);
+  console.log(data.get('comment'));
 }
 
 /* init */
