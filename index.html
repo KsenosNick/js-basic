@@ -58,31 +58,38 @@
           </div>
         </main>
       </div>
-      <div class="cover cover_hidden" id="add-habbit-popup">;
+      <div class="cover cover_hidden" id="add-habbit-popup">
+        ;
         <div class="popup">
           <h2>Новая привычка</h2>
           <div class="icon-label">Иконка</div>
           <div class="icon-select">
-            <button class="icon icon_active">
-              <img src="./images/sport.svg" alt="Спорт">
+            <button class="icon icon_active" onclick="setIcon(this, 'sport')">
+              <img src="./images/sport.svg" alt="Спорт" />
             </button>
-            <button class="icon">
-              <img src="./images/water.svg" alt="Напитки">
+            <button class="icon" onclick="setIcon(this, 'water')">
+              <img src="./images/water.svg" alt="Напитки" />
             </button>
-            <button class="icon">
-              <img src="./images/food.svg" alt="Еда">
-            </button>            
+            <button class="icon" onclick="setIcon(this, 'food')">
+              <img src="./images/food.svg" alt="Еда" />
+            </button>
           </div>
-          <form action="" class="popup__form">
-            <input type="text" name="name" placeholder="Название">
-            <input type="number" name="target" placeholder="Цель">
-            <button class="button" type="submit">Добавить</button>
+          <form action="" class="popup__form" onsubmit="addHabbits(event)">
+            <input type="text" name="name" placeholder="Название" />
+            <input
+              type="text"
+              name="icon"
+              hidden
+              placeholder="Название"
+              value="sport"
+            />
+            <input type="number" name="target" placeholder="Цель" />
+            <button class="button" type="submit" >Добавить</button>
             <button class="popup__close" onclick="togglePopup()">
-              <img src="./images/close.svg" alt=" Закрыть">
+              <img src="./images/close.svg" alt=" Закрыть" />
             </button>
           </form>
         </div>
-
       </div>
     </div>
 
